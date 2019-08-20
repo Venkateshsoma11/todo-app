@@ -1,0 +1,32 @@
+<form ngForm #form="ngForm" (ngSubmit)="addTask(form)">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="task">Task</label>
+        <input type="text" ngModel #title="ngModel" name="name" class="form-control" id="title" aria-describedby="title"
+          placeholder="task title!!">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <input type="textarea" ngModel #message="ngModel" name="message" class="form-control" id="message"
+          placeholder="Task Description">
+      </div>
+
+
+    </div>
+
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+  </div>
+
+</form>
+<div class="container">
+  <table class="table">
+    <tbody *ngFor="let d of data">
+      <tr>
+        <td>{{d.name}} --> {{d.message}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
